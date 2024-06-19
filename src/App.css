@@ -1,38 +1,90 @@
-.App {
-  text-align: center;
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f7f9fc;
+  margin: 0;
+  padding: 40px 0; /* Added padding for scrolling */
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  min-height: 100vh;
 }
 
-.App-link {
-  color: #61dafb;
+.container {
+  background-color: #fff;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  padding: 40px;
+  max-width: 800px; /* Increased width */
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.01);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+h1 {
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+input[type="text"], input[type="color"], input[type="range"], select, button {
+  font-family: 'Inter', sans-serif;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+}
+
+.input-group input[type="text"], .input-group input[type="color"] {
+  height: 38px; /* Ensure both inputs have the same height */
+  padding: 6px 12px; /* Add padding */
+  box-sizing: border-box; /* Include padding in height */
+}
+
+.input-group input[type="text"] {
+  width: calc(50% - 10px); /* Adjusted width to keep them aligned */
+}
+
+.input-group input[type="color"] {
+  width: calc(50% - 10px); /* Adjusted width to keep them aligned */
+  margin-left: 10px;
+  padding: 0; /* Remove extra padding from color input */
+  border: 1px solid #ced4da; /* Match the border style */
+  border-radius: 0.25rem; /* Match the border radius */
+}
+
+input[type="range"] {
+  width: 100%;
+  margin-top: 10px;
+}
+
+label {
+  font-weight: 700;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.qr-code-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ddd;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+button, select {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:hover, select:hover {
+  background-color: #cbcbcb;
 }
