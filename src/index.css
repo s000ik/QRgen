@@ -13,6 +13,19 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #f7f9fc;
+  margin: 0;
+  padding: 40px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Added padding for scrolling */
+  min-height: 100vh;
+  /* Custom scrollbar that is thin, subtle and round */
+  scrollbar-width: thin;
+  scrollbar-color: #ced4da #f7f9fc;
+
+
 }
 
 code {

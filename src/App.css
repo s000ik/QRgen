@@ -1,7 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
   background-color: #f7f9fc;
   margin: 0;
   padding: 40px 0; /* Added padding for scrolling */
@@ -23,17 +22,47 @@ body {
 }
 
 h1 {
-  font-weight: 700;
+  font-weight: 600;
   margin-bottom: 30px;
 }
-
-input[type="text"], input[type="color"], input[type="range"], select, button {
-  font-family: 'Inter', sans-serif;
-}
-
 .input-group {
   display: flex;
   align-items: center;
+}
+
+.input-group .form-control,
+.input-group .btn {
+  flex: 1;
+  height: 38px; /* Ensure both elements have the same height */
+}
+
+.input-group .form-control {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  margin-right: -1px; /* Remove the gap between select and button */
+}
+
+.input-group .btn {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+select, button {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:hover, select:hover {
+  background-color: #cbcbcb;
+}
+
+input[type="text"], input[type="color"], input[type="range"], select, button {
+  font-family: 'Poppins', sans-serif;
 }
 
 .input-group input[type="text"], .input-group input[type="color"] {
@@ -59,8 +88,9 @@ input[type="range"] {
   margin-top: 10px;
 }
 
+
 label {
-  font-weight: 700;
+  font-weight: 600;
   display: block;
   margin-bottom: 10px;
 }
@@ -75,16 +105,3 @@ label {
   border-radius: 10px;
 }
 
-button, select {
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  background-color: #007bff;
-  color: #fff;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-button:hover, select:hover {
-  background-color: #cbcbcb;
-}

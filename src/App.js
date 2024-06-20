@@ -50,6 +50,8 @@ function App() {
               id="valueInput"
               onChange={(e) => setValue(e.target.value)}
               placeholder="Enter value for QR code"
+              //cetnre the text
+              style={{ textAlign: 'center' }}
               value={value}
             />
           </div>
@@ -96,7 +98,7 @@ function App() {
               className="form-control-range"
               onChange={handleSizeChange}
               min="100"
-              max="400"
+              max="320"
               step="10"
               value={size}
             />
@@ -107,6 +109,8 @@ function App() {
               <div className="d-flex justify-content-center">
                 <div ref={qrRef} className="qr-code-wrapper">
                   <QRCode
+                  //center the qr code
+                    style={{ margin: 'auto' }}
                     title="QR code"
                     value={value}
                     bgColor={back}
@@ -118,7 +122,7 @@ function App() {
             )}
             {value && (
               <div className="form-group mt-4">
-                <label className="form-label">Select Format</label>
+                <label className="form-label">Download</label>
                 <div className="input-group">
                   <select
                     className="form-control"
@@ -129,7 +133,7 @@ function App() {
                     <option value="jpg">JPG</option>
                     <option value="svg">SVG</option>
                   </select>
-                  <button className="btn btn-primary ms-2" onClick={handleDownload}>
+                  <button className="btn btn-primary" onClick={handleDownload}>
                     Download
                   </button>
                 </div>
