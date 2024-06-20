@@ -1,70 +1,85 @@
-# Getting Started with Create React App
+# QRgen
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+QRgen is a React-based QR code generator application designed with a clean and powerful interface using Bootstrap CSS and the `react-qr` library. The application allows users to customize QR code parameters and ensures full transparency and privacy by processing all data in-browser. Users can generate QR codes in various formats and download them easily.
 
-In the project directory, you can run:
+## Technologies and Tools
 
-### `npm start`
+- **React**
+- **Bootstrap CSS**
+- **react-qr**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. **QR Code Generation:**
+   - Generate QR codes dynamically based on user input.
+   - Customize QR code foreground and background colors.
+   - Adjust the size of the QR code to fit specific requirements.
 
-### `npm test`
+2. **User Interface:**
+   - Built with React for a responsive and interactive user experience.
+   - Styled using Bootstrap CSS for a clean and modern look.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+3. **Data Privacy:**
+   - All data is processed in-browser to ensure user privacy and security.
+   - No data is sent to external servers.
 
-### `npm run build`
+4. **Download Options:**
+   - Users can download generated QR codes in multiple formats: PNG, SVG, and JPG.
+   - Easy-to-use download buttons integrated into the interface.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+5. **Open Source:**
+   - The source code is open for review and contributions on GitHub.
+   - Ensures transparency and allows for community-driven improvements.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Getting Started
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Prerequisites
 
-### `npm run eject`
+- Node.js and npm installed on your machine.
+- Basic knowledge of React and Bootstrap.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Installation
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/s000ik/QRgen.git
+   cd QRgen
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+2. **Install Dependencies:**
+   ```bash
+   npm install
+   ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+3. **Run the Application:**
+   ```bash
+   npm start
+   ```
 
-## Learn More
+4. **Open in Browser:**
+   - Navigate to `http://localhost:3000` to view and use the application.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Usage
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. **Generate a QR Code:**
+   - Enter the text or URL you want to encode.
+   - Customize the foreground and background colors using the color pickers.
+   - Adjust the size of the QR code using the provided slider.
 
-### Code Splitting
+2. **Download the QR Code:**
+   - Click on the desired format button (PNG, SVG, JPG) to download the QR code.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Contributing
 
-### Analyzing the Bundle Size
+Contributions are welcome! Please fork the repository and submit a pull request for any enhancements or bug fixes. For major changes, please open an issue first to discuss what you would like to change.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### License
 
-### Making a Progressive Web App
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Acknowledgments
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- The React and Bootstrap communities for providing robust and flexible frameworks.
+- The developers of the `react-qr` library for their invaluable tool in generating QR codes.
