@@ -1,4 +1,4 @@
-name: Update Dependencies
+name: Package Maintenance
 
 on:
   schedule:
@@ -8,7 +8,7 @@ on:
   workflow_dispatch:    
 
 jobs:
-  check-update:
+  maintenance:
     runs-on: ubuntu-latest
     permissions:
       contents: write 
@@ -20,8 +20,8 @@ jobs:
 
       - name: Configure Git
         run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git config user.name 'Satwik Singh'
+          git config user.email 's000ik@users.noreply.github.com'
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -29,31 +29,29 @@ jobs:
           node-version: 'lts/*'
           cache: 'npm'
 
-      - name: Random Skip Check
-        id: random_check
+      - name: Workspace Check
+        id: workspace_check
         run: |
-          # Generate random number 0-2 (0=run today, 1-2=skip)
           RANDOM_NUM=$(( $RANDOM % 3 ))
           if [ "$RANDOM_NUM" -ne 0 ]; then
-            echo "Randomly skipping today's update"
+            echo "No changes needed at this time"
             exit 0
           fi
 
-      - name: Update Dependencies and Logs
+      - name: Update Project Files
         if: success()
         run: |
-          echo "Check-in: $(date -u)" >> logs.txt
+          echo "Project review: $(date -u)" >> project-log.txt
           
           npm install
           npm update
           
-          git add logs.txt package*.json || true
-          git commit -m "Update: $(date -u)" || true
+          git add project-log.txt package*.json || true
+          git commit -m "Project maintenance and review" || true
           
           if [ -z "$(git status --porcelain)" ]; then
-            echo "No changes detected"
-            git commit --allow-empty -m "Daily check-in: $(date -u)"
+            echo "Everything is up to date"
+            git commit --allow-empty -m "Reviewed project dependencies"
           fi
           
-          # Push changes
           git push origin HEAD
