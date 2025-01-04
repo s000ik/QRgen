@@ -1,0 +1,59 @@
+name: Update Dependencies
+
+on:
+  schedule:
+    - cron: "0 12 */1 * *" 
+    - cron: "0 12 */2 * *" 
+    - cron: "0 12 */3 * *" 
+  workflow_dispatch:    
+
+jobs:
+  daily-update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write 
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 
+
+      - name: Configure Git
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 'lts/*'
+          cache: 'npm'
+
+      - name: Random Skip Check
+        id: random_check
+        run: |
+          # Generate random number 0-2 (0=run today, 1-2=skip)
+          RANDOM_NUM=$(( $RANDOM % 3 ))
+          if [ "$RANDOM_NUM" -ne 0 ]; then
+            echo "Randomly skipping today's update"
+            exit 0
+          fi
+
+      - name: Update Dependencies and Logs
+        if: success()
+        run: |
+          echo "Check-in: $(date -u)" >> logs.txt
+          
+          npm install
+          npm update
+          
+          git add logs.txt package*.json || true
+          git commit -m "Update: $(date -u)" || true
+          
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "No changes detected"
+            git commit --allow-empty -m "Daily check-in: $(date -u)"
+          fi
+          
+          # Push changes
+          git push origin HEAD
