@@ -51,7 +51,7 @@ jobs:
           
           if [ -z "$(git status --porcelain)" ]; then
             echo "Everything is up to date"
-            git commit --allow-empty -m "Reviewed project dependencies"
+            git commit --allow-empty -m "Maintaining"
           fi
           
           git push origin HEAD
