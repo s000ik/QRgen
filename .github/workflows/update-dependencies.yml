@@ -2,9 +2,7 @@ name: Package Maintenance
 
 on:
   schedule:
-    - cron: "0 12 */1 * *" 
-    - cron: "0 12 */2 * *" 
-    - cron: "0 12 */3 * *" 
+    - cron: "0 8 */3 * *"
   workflow_dispatch:    
 
 jobs:
@@ -29,29 +27,27 @@ jobs:
           node-version: 'lts/*'
           cache: 'npm'
 
-      - name: Workspace Check
-        id: workspace_check
+      - name: Day Check
+        id: check
         run: |
-          RANDOM_NUM=$(( $RANDOM % 3 ))
-          if [ "$RANDOM_NUM" -ne 0 ]; then
-            echo "No changes needed at this time"
-            exit 0
+          DAYS=$(( $RANDOM % 4 + 3 ))
+          DAY_OF_YEAR=$(date +%j)
+          if [ $(( $DAY_OF_YEAR % $DAYS )) -eq 0 ]; then
+            echo "::set-output name=should_run::true"
+          else
+            echo "::set-output name=should_run::false"
           fi
 
       - name: Update Project Files
-        if: success()
+        if: ${{ steps.check.outputs.should_run == 'true' }}
         run: |
           echo "Project review: $(date -u)" >> project-log.txt
-          
           npm install
           npm update
-          
           git add project-log.txt package*.json || true
           git commit -m "Project maintenance and review" || true
-          
           if [ -z "$(git status --porcelain)" ]; then
             echo "Everything is up to date"
-            git commit --allow-empty -m "Maintaining"
+            git commit --allow-empty -m "Reviewed project dependencies"
           fi
-          
           git push origin HEAD
